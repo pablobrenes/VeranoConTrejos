@@ -7,8 +7,7 @@
 (* Last modification: April 12, 2006                 *)
 (* ------------------------------------------------- *)
 
- open Printf
- open Parser
+ open Token
  open ErrorReporter
  open Lexing
 

@@ -1,39 +1,4 @@
-type token =
-  | INTLITERAL of (string)
-  | CHARLITERAL of (string)
-  | IDENTIFIER of (string)
-  | OPERATOR of (string)
-  | ARRAY
-  | BEGIN
-  | CONST
-  | DO
-  | ELSE
-  | END
-  | FUNC
-  | IF
-  | IN
-  | LET
-  | OF
-  | PROC
-  | RECORD
-  | THEN
-  | TYPE
-  | VAR
-  | WHILE
-  | DOT
-  | COLON
-  | SEMICOLON
-  | COMMA
-  | BECOMES
-  | IS
-  | LPAREN
-  | RPAREN
-  | LBRACKET
-  | RBRACKET
-  | LCURLY
-  | RCURLY
-  | EOF
-
+open Token;;
 open Parsing;;
 let _ = parse_error;;
 # 2 "Parser.mly"
@@ -46,13 +11,12 @@ let _ = parse_error;;
 (* --------------------------------------------------- *)
 
       open Ast
-      open Printf
       open Parsing
       open ErrorReporter
       open RuntimeEntity
       
       let parse_error s = ()
-# 56 "Parser.ml"
+# 55 "Parser.ml"
 let yytransl_const = [|
   261 (* ARRAY *);
   262 (* BEGIN *);
@@ -330,292 +294,292 @@ let yyact = [|
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'Command) in
     Obj.repr(
-# 40 "Parser.mly"
+# 39 "Parser.mly"
                             ( Program({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 336 "Parser.ml"
+# 335 "Parser.ml"
                : Ast.astProgram))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 41 "Parser.mly"
+# 40 "Parser.mly"
                             ( ErrorReporter.reportError "Command expected here." (rhs_start_pos(1)); 
                               raise Parse_error )
-# 343 "Parser.ml"
+# 342 "Parser.ml"
                : Ast.astProgram))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'single_Command) in
     Obj.repr(
-# 47 "Parser.mly"
+# 46 "Parser.mly"
                                           ( _1 )
-# 350 "Parser.ml"
+# 349 "Parser.ml"
                : 'Command))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'single_Command) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Command) in
     Obj.repr(
-# 48 "Parser.mly"
+# 47 "Parser.mly"
                                           ( SequentialCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 358 "Parser.ml"
+# 357 "Parser.ml"
                : 'Command))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 51 "Parser.mly"
+# 50 "Parser.mly"
                                                                       ( EmptyCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}) )
-# 364 "Parser.ml"
+# 363 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Vname) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 52 "Parser.mly"
+# 51 "Parser.mly"
                                                                       ( AssignCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 372 "Parser.ml"
+# 371 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 3 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 1 : 'Actual_Parameter_Sequence) in
     Obj.repr(
-# 53 "Parser.mly"
+# 52 "Parser.mly"
                                                                       ( CallCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 380 "Parser.ml"
+# 379 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Command) in
     Obj.repr(
-# 54 "Parser.mly"
+# 53 "Parser.mly"
                                                                       ( _2 )
-# 387 "Parser.ml"
+# 386 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Declaration) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'single_Command) in
     Obj.repr(
-# 55 "Parser.mly"
+# 54 "Parser.mly"
                                                                       ( LetCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 395 "Parser.ml"
+# 394 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 4 : 'Expression) in
     let _4 = (Parsing.peek_val __caml_parser_env 2 : 'single_Command) in
     let _6 = (Parsing.peek_val __caml_parser_env 0 : 'single_Command) in
     Obj.repr(
-# 56 "Parser.mly"
+# 55 "Parser.mly"
                                                                       ( IfCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4, _6) )
-# 404 "Parser.ml"
+# 403 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Expression) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'single_Command) in
     Obj.repr(
-# 57 "Parser.mly"
+# 56 "Parser.mly"
                                                                       ( WhileCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 412 "Parser.ml"
+# 411 "Parser.ml"
                : 'single_Command))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'secondary_Expression) in
     Obj.repr(
-# 62 "Parser.mly"
+# 61 "Parser.mly"
                                                              ( _1 )
-# 419 "Parser.ml"
+# 418 "Parser.ml"
                : 'Expression))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Declaration) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 63 "Parser.mly"
+# 62 "Parser.mly"
                                                              ( LetExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 427 "Parser.ml"
+# 426 "Parser.ml"
                : 'Expression))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 4 : 'Expression) in
     let _4 = (Parsing.peek_val __caml_parser_env 2 : 'Expression) in
     let _6 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 64 "Parser.mly"
+# 63 "Parser.mly"
                                                              ( IfExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4, _6) )
-# 436 "Parser.ml"
+# 435 "Parser.ml"
                : 'Expression))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 65 "Parser.mly"
+# 64 "Parser.mly"
                                                              ( ErrorReporter.reportError "Expression expected here." (rhs_start_pos(1)); 
                                                                raise Parse_error )
-# 443 "Parser.ml"
+# 442 "Parser.ml"
                : 'Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'primary_Expression) in
     Obj.repr(
-# 70 "Parser.mly"
+# 69 "Parser.mly"
                                                                        ( _1 )
-# 450 "Parser.ml"
+# 449 "Parser.ml"
                : 'secondary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'secondary_Expression) in
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Operator) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'primary_Expression) in
     Obj.repr(
-# 71 "Parser.mly"
+# 70 "Parser.mly"
                                                                        ( BinaryExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _2, _3) )
-# 459 "Parser.ml"
+# 458 "Parser.ml"
                : 'secondary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Integer_Literal) in
     Obj.repr(
-# 74 "Parser.mly"
+# 73 "Parser.mly"
                                                                        ( IntegerExpression({pos=rhs_start_pos(1); run=NullRuntimeEntity}, _1) )
-# 466 "Parser.ml"
+# 465 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Character_Literal) in
     Obj.repr(
-# 75 "Parser.mly"
+# 74 "Parser.mly"
                                                                        ( CharacterExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity},_1) )
-# 473 "Parser.ml"
+# 472 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Vname) in
     Obj.repr(
-# 76 "Parser.mly"
+# 75 "Parser.mly"
                                                                        ( VnameExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 480 "Parser.ml"
+# 479 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 3 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 1 : 'Actual_Parameter_Sequence) in
     Obj.repr(
-# 77 "Parser.mly"
+# 76 "Parser.mly"
                                                                        ( CallExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 488 "Parser.ml"
+# 487 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'Operator) in
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'primary_Expression) in
     Obj.repr(
-# 78 "Parser.mly"
+# 77 "Parser.mly"
                                                                        ( UnaryExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _2) )
-# 496 "Parser.ml"
+# 495 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Expression) in
     Obj.repr(
-# 79 "Parser.mly"
+# 78 "Parser.mly"
                                                                        ( _2 )
-# 503 "Parser.ml"
+# 502 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Record_Aggregate) in
     Obj.repr(
-# 80 "Parser.mly"
+# 79 "Parser.mly"
                                                                        ( RecordExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 510 "Parser.ml"
+# 509 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Array_Aggregate) in
     Obj.repr(
-# 81 "Parser.mly"
+# 80 "Parser.mly"
                                                                        ( ArrayExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 517 "Parser.ml"
+# 516 "Parser.ml"
                : 'primary_Expression))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 85 "Parser.mly"
+# 84 "Parser.mly"
                                                                   ( SingleRecordAggregate({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 525 "Parser.ml"
+# 524 "Parser.ml"
                : 'Record_Aggregate))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 4 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 2 : 'Expression) in
     let _5 = (Parsing.peek_val __caml_parser_env 0 : 'Record_Aggregate) in
     Obj.repr(
-# 86 "Parser.mly"
+# 85 "Parser.mly"
                                                                   ( MultipleRecordAggregate({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3, _5) )
-# 534 "Parser.ml"
+# 533 "Parser.ml"
                : 'Record_Aggregate))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 90 "Parser.mly"
+# 89 "Parser.mly"
                                                   ( SingleArrayAggregate({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 541 "Parser.ml"
+# 540 "Parser.ml"
                : 'Array_Aggregate))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Expression) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Array_Aggregate) in
     Obj.repr(
-# 91 "Parser.mly"
+# 90 "Parser.mly"
                                                   ( MultipleArrayAggregate({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 549 "Parser.ml"
+# 548 "Parser.ml"
                : 'Array_Aggregate))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
     Obj.repr(
-# 95 "Parser.mly"
+# 94 "Parser.mly"
                                           ( SimpleVname({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 556 "Parser.ml"
+# 555 "Parser.ml"
                : 'Vname))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Vname) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
     Obj.repr(
-# 96 "Parser.mly"
+# 95 "Parser.mly"
                                           ( DotVname({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 564 "Parser.ml"
+# 563 "Parser.ml"
                : 'Vname))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 3 : 'Vname) in
     let _3 = (Parsing.peek_val __caml_parser_env 1 : 'Expression) in
     Obj.repr(
-# 97 "Parser.mly"
+# 96 "Parser.mly"
                                           ( SubscriptVname({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 572 "Parser.ml"
+# 571 "Parser.ml"
                : 'Vname))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'single_Declaration) in
     Obj.repr(
-# 101 "Parser.mly"
+# 100 "Parser.mly"
                                                       ( _1 )
-# 579 "Parser.ml"
+# 578 "Parser.ml"
                : 'Declaration))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Declaration) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'single_Declaration) in
     Obj.repr(
-# 102 "Parser.mly"
+# 101 "Parser.mly"
                                                       ( SequentialDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 587 "Parser.ml"
+# 586 "Parser.ml"
                : 'Declaration))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 103 "Parser.mly"
+# 102 "Parser.mly"
                                                       ( ErrorReporter.reportError "Declaration expected here." (rhs_start_pos(1)); 
                                                         raise Parse_error )
-# 594 "Parser.ml"
+# 593 "Parser.ml"
                : 'Declaration))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 107 "Parser.mly"
+# 106 "Parser.mly"
                                                                                                              ( ConstDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 602 "Parser.ml"
+# 601 "Parser.ml"
                : 'single_Declaration))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 108 "Parser.mly"
+# 107 "Parser.mly"
                                                                                                              ( VarDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 610 "Parser.ml"
+# 609 "Parser.ml"
                : 'single_Declaration))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 5 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 3 : 'Formal_Parameter_Sequence) in
     let _7 = (Parsing.peek_val __caml_parser_env 0 : 'single_Command) in
     Obj.repr(
-# 109 "Parser.mly"
+# 108 "Parser.mly"
                                                                                                              ( ProcDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4, _7) )
-# 619 "Parser.ml"
+# 618 "Parser.ml"
                : 'single_Declaration))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 7 : 'Identifier) in
@@ -623,201 +587,201 @@ let yyact = [|
     let _7 = (Parsing.peek_val __caml_parser_env 2 : 'Type_denoter) in
     let _9 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 110 "Parser.mly"
+# 109 "Parser.mly"
                                                                                                              ( FuncDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4, _7, _9) )
-# 629 "Parser.ml"
+# 628 "Parser.ml"
                : 'single_Declaration))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 111 "Parser.mly"
+# 110 "Parser.mly"
                                                                                                              ( TypeDeclaration({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 637 "Parser.ml"
+# 636 "Parser.ml"
                : 'single_Declaration))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 115 "Parser.mly"
+# 114 "Parser.mly"
                                                             ( EmptyFormalParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity}) )
-# 643 "Parser.ml"
+# 642 "Parser.ml"
                : 'Formal_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'proper_Formal_Parameter_Sequence) in
     Obj.repr(
-# 116 "Parser.mly"
+# 115 "Parser.mly"
                                                             ( _1 )
-# 650 "Parser.ml"
+# 649 "Parser.ml"
                : 'Formal_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Formal_Parameter) in
     Obj.repr(
-# 119 "Parser.mly"
+# 118 "Parser.mly"
                                                                                           ( SingleFormalParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity},_1) )
-# 657 "Parser.ml"
+# 656 "Parser.ml"
                : 'proper_Formal_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Formal_Parameter) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'proper_Formal_Parameter_Sequence) in
     Obj.repr(
-# 120 "Parser.mly"
+# 119 "Parser.mly"
                                                                                           ( MultipleFormalParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 665 "Parser.ml"
+# 664 "Parser.ml"
                : 'proper_Formal_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 123 "Parser.mly"
+# 122 "Parser.mly"
                                                                                              ( ConstFormalParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 673 "Parser.ml"
+# 672 "Parser.ml"
                : 'Formal_Parameter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 124 "Parser.mly"
+# 123 "Parser.mly"
                                                                                              ( VarFormalParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 681 "Parser.ml"
+# 680 "Parser.ml"
                : 'Formal_Parameter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 3 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 1 : 'Formal_Parameter_Sequence) in
     Obj.repr(
-# 125 "Parser.mly"
+# 124 "Parser.mly"
                                                                                              ( ProcFormalParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 689 "Parser.ml"
+# 688 "Parser.ml"
                : 'Formal_Parameter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 5 : 'Identifier) in
     let _4 = (Parsing.peek_val __caml_parser_env 3 : 'Formal_Parameter_Sequence) in
     let _7 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 126 "Parser.mly"
+# 125 "Parser.mly"
                                                                                              ( FuncFormalParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4, _7) )
-# 698 "Parser.ml"
+# 697 "Parser.ml"
                : 'Formal_Parameter))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 130 "Parser.mly"
+# 129 "Parser.mly"
                                                             ( EmptyActualParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity}) )
-# 704 "Parser.ml"
+# 703 "Parser.ml"
                : 'Actual_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'proper_Actual_Parameter_Sequence) in
     Obj.repr(
-# 131 "Parser.mly"
+# 130 "Parser.mly"
                                                             ( _1 )
-# 711 "Parser.ml"
+# 710 "Parser.ml"
                : 'Actual_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Actual_Parameter) in
     Obj.repr(
-# 134 "Parser.mly"
+# 133 "Parser.mly"
                                                                                           ( SingleActualParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 718 "Parser.ml"
+# 717 "Parser.ml"
                : 'proper_Actual_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Actual_Parameter) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'proper_Actual_Parameter_Sequence) in
     Obj.repr(
-# 135 "Parser.mly"
+# 134 "Parser.mly"
                                                                                           ( MultipleActualParameterSequence({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 726 "Parser.ml"
+# 725 "Parser.ml"
                : 'proper_Actual_Parameter_Sequence))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Expression) in
     Obj.repr(
-# 138 "Parser.mly"
+# 137 "Parser.mly"
                                   ( ConstActualParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 733 "Parser.ml"
+# 732 "Parser.ml"
                : 'Actual_Parameter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'Vname) in
     Obj.repr(
-# 139 "Parser.mly"
+# 138 "Parser.mly"
                                   ( VarActualParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 740 "Parser.ml"
+# 739 "Parser.ml"
+               : 'Actual_Parameter))
+; (fun __caml_parser_env ->
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
+    Obj.repr(
+# 139 "Parser.mly"
+                                  ( ProcActualParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
+# 746 "Parser.ml"
                : 'Actual_Parameter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
     Obj.repr(
 # 140 "Parser.mly"
-                                  ( ProcActualParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 747 "Parser.ml"
-               : 'Actual_Parameter))
-; (fun __caml_parser_env ->
-    let _2 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
-    Obj.repr(
-# 141 "Parser.mly"
                                   ( FuncActualParameter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 754 "Parser.ml"
+# 753 "Parser.ml"
                : 'Actual_Parameter))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'Identifier) in
     Obj.repr(
-# 145 "Parser.mly"
+# 144 "Parser.mly"
                                                     ( SimpleTypeDenoter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 761 "Parser.ml"
+# 760 "Parser.ml"
                : 'Type_denoter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : 'Integer_Literal) in
     let _4 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 146 "Parser.mly"
+# 145 "Parser.mly"
                                                     ( ArrayTypeDenoter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2, _4) )
-# 769 "Parser.ml"
+# 768 "Parser.ml"
                : 'Type_denoter))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'Record_Type_denoter) in
     Obj.repr(
-# 147 "Parser.mly"
+# 146 "Parser.mly"
                                                     ( RecordTypeDenoter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _2) )
-# 776 "Parser.ml"
+# 775 "Parser.ml"
                : 'Type_denoter))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'Type_denoter) in
     Obj.repr(
-# 150 "Parser.mly"
+# 149 "Parser.mly"
                                                                              ( SingleFieldTypeDenoter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3) )
-# 784 "Parser.ml"
+# 783 "Parser.ml"
                : 'Record_Type_denoter))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 4 : 'Identifier) in
     let _3 = (Parsing.peek_val __caml_parser_env 2 : 'Type_denoter) in
     let _5 = (Parsing.peek_val __caml_parser_env 0 : 'Record_Type_denoter) in
     Obj.repr(
-# 151 "Parser.mly"
+# 150 "Parser.mly"
                                                                              ( MultipleFieldTypeDenoter({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1, _3, _5) )
-# 793 "Parser.ml"
+# 792 "Parser.ml"
                : 'Record_Type_denoter))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
-# 155 "Parser.mly"
+# 154 "Parser.mly"
                             ( IntegerLiteral({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 800 "Parser.ml"
+# 799 "Parser.ml"
                : 'Integer_Literal))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
-# 159 "Parser.mly"
+# 158 "Parser.mly"
                                ( CharacterLiteral({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 807 "Parser.ml"
+# 806 "Parser.ml"
                : 'Character_Literal))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
-# 163 "Parser.mly"
+# 162 "Parser.mly"
                        ( Identifier({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 814 "Parser.ml"
+# 813 "Parser.ml"
                : 'Identifier))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
-# 167 "Parser.mly"
+# 166 "Parser.mly"
                    ( Operator({pos=rhs_start_pos(1);run=NullRuntimeEntity}, _1) )
-# 821 "Parser.ml"
+# 820 "Parser.ml"
                : 'Operator))
 (* Entry parseProgram *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

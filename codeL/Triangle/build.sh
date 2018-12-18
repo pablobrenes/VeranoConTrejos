@@ -14,6 +14,7 @@ ocamlc -c RuntimeEntity.mli
 ocamlc -c Ast.mli
 ocamlc -c IdentificationTable.mli
 ocamlc -c TreeDrawer.mli
+ocamlc -c Token.mli
 ocamlc -c Parser.mli
 ocamlc -c Scanner.mli
 ocamlc -c Checker.mli

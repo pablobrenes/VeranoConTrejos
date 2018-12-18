@@ -1,6 +1,6 @@
 open Printf
 open String
-open Parser
+open Token
 
 let tokenToStr r = (
   match r with

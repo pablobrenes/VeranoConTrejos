@@ -6,7 +6,7 @@
 (* Last modification: March 13, 2006  *)
 (* ---------------------------------- *)
 
-open Parser
+open Token
 
 
 (* Reads a token from the buffer and returns it *)

@@ -8,7 +8,6 @@
 (* --------------------------------------------------- *)
 
       open Ast
-      open Printf
       open Parsing
       open ErrorReporter
       open RuntimeEntity
