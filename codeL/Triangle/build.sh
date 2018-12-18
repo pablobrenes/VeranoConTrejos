@@ -18,6 +18,7 @@ ocamlc -c Parser.mli
 ocamlc -c Scanner.mli
 ocamlc -c Checker.mli
 ocamlc -c Encoder.mli
+ocamlc -c TokenPrinter.mli
 
 ocamlc -c ErrorReporter.ml
 ocamlc -c IdentificationTable.ml
@@ -26,9 +27,10 @@ ocamlc -c Parser.ml
 ocamlc -c Scanner.ml
 ocamlc -c Checker.ml
 ocamlc -c Encoder.ml
+ocamlc -c TokenPrinter.ml
 ocamlc -c -pp camlp4o Compiler.ml
 
-ocamlc ErrorReporter.cmo IdentificationTable.cmo TreeDrawer.cmo Parser.cmo Scanner.cmo Checker.cmo Encoder.cmo Compiler.cmo -o Triangle
+ocamlc ErrorReporter.cmo IdentificationTable.cmo TreeDrawer.cmo Parser.cmo TokenPrinter.cmo Scanner.cmo Checker.cmo Encoder.cmo Compiler.cmo -o Triangle
 
 mv Triangle ..
 cd ..
