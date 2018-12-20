@@ -1,9 +1,0 @@
-let
-   var x: Integer;
-   var y: Boolean
-in
-begin
-
-  x := 4 + 4
-
-end

@@ -59,8 +59,8 @@ single_Command:                                                       { EmptyCom
 
 /* Expressions */
 Expression: secondary_Expression                             { $1 }
-          | LET Declaration IN Expression                    { LetExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, $2, $4) }
           | IF Expression THEN Expression ELSE Expression    { IfExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, $2, $4, $6) }
+          | LET Declaration IN Expression                    { LetExpression({pos=rhs_start_pos(1);run=NullRuntimeEntity}, $2, $4) }          
           | error                                            { ErrorReporter.reportError "Expression expected here." (rhs_start_pos(1)); 
                                                                raise Parse_error }
           ;
