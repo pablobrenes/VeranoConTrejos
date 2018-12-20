@@ -81,7 +81,7 @@ and writeExpression t chan = match t with
   | IfExpression        (_,e1,e2,e3) -> output_string chan "<IfExpression>\n";
                                         writeExpression e1 chan;
                                         writeExpression e2 chan;
-                                        writeExpression e2 chan;
+                                        writeExpression e3 chan;
                                         output_string chan "</IfExpression>\n"
 
   | LetExpression       (_,d,e)      -> output_string chan "<LetExpression>\n";
