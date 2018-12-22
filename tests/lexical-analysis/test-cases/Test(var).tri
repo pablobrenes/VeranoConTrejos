@@ -1,0 +1,273 @@
+! Test of var with 3 unis
+varvarvar
+
+! Test of var with array
+array var
+arrayvar
+arrayvararray
+array var var var array
+
+! Test of var with begin
+begin var
+beginvar
+beginvarbegin
+begin var var var begin
+
+! Test of var with const
+const var
+constvar
+constvarconst
+const var var var const
+
+! Test of var with do
+do var
+dovar
+dovardo
+do var var var do
+
+! Test of var with else
+else var
+elsevar
+elsevarelse
+else var var var else
+
+! Test of var with end
+end var
+endvar
+endvarend
+end var var var end
+
+! Test of var with func
+func var
+funcvar
+funcvarfunc
+func var var var func
+
+! Test of var with if
+if var
+ifvar
+ifvarif
+if var var var if
+
+! Test of var with in
+in var
+invar
+invarin
+in var var var in
+
+! Test of var with let
+let var
+letvar
+letvarlet
+let var var var let
+
+! Test of var with of
+of var
+ofvar
+ofvarof
+of var var var of
+
+! Test of var with proc
+proc var
+procvar
+procvarproc
+proc var var var proc
+
+! Test of var with record
+record var
+recordvar
+recordvarrecord
+record var var var record
+
+! Test of var with then
+then var
+thenvar
+thenvarthen
+then var var var then
+
+! Test of var with type
+type var
+typevar
+typevartype
+type var var var type
+
+! Test of var with var
+var var
+varvar
+varvarvar
+var var var var var
+
+! Test of var with while
+while var
+whilevar
+whilevarwhile
+while var var var while
+
+! Test of var with .
+. var
+.var
+.var.
+. var var var .
+
+! Test of var with colon
+: var
+:var
+:var:
+: var var var :
+
+! Test of var with ;
+; var
+;var
+;var;
+; var var var ;
+
+! Test of var with ,
+, var
+,var
+,var,
+, var var var ,
+
+! Test of var with becomes
+:= var
+:=var
+:=var:=
+:= var var var :=
+
+! Test of var with ~
+~ var
+~var
+~var~
+~ var var var ~
+
+! Test of var with (
+( var
+(var
+(var(
+( var var var (
+
+! Test of var with )
+) var
+)var
+)var)
+) var var var )
+
+! Test of var with [
+[ var
+[var
+[var[
+[ var var var [
+
+! Test of var with ]
+] var
+]var
+]var]
+] var var var ]
+
+! Test of var with {
+{ var
+{var
+{var{
+{ var var var {
+
+! Test of var with }
+} var
+}var
+}var}
+} var var var }
+
+! Test of var with +
++ var
++var
++var+
++ var var var +
+
+! Test of var with -
+- var
+-var
+-var-
+- var var var -
+
+! Test of var with asterisk
+* var
+*var
+*var*
+* var var var *
+
+! Test of var with backSlash
+/ var
+/var
+/var/
+/ var var var /
+
+! Test of var with =
+= var
+=var
+=var=
+= var var var =
+
+! Test of var with lessThan
+< var
+<var
+<var<
+< var var var <
+
+! Test of var with moreThan
+> var
+>var
+>var>
+> var var var >
+
+! Test of var with slash
+\ var
+\var
+\var\
+\ var var var \
+
+! Test of var with &
+& var
+&var
+&var&
+& var var var &
+
+! Test of var with @
+@ var
+@var
+@var@
+@ var var var @
+
+! Test of var with %
+% var
+%var
+%var%
+% var var var %
+
+! Test of var with ^
+^ var
+^var
+^var^
+^ var var var ^
+
+! Test of var with questionMark
+? var
+?var
+?var?
+? var var var ?
+
+! Test of var with CharLiteral
+'`' var
+'}'var
+','var'_'
+'Q' var var var '	'
+
+! Test of var with IntLiteral
+75870337799900 var
+34595509084406var
+82659686795var0320568231414
+0153074561 var var var 104013828417
+
+! Test of var with Indentifier
+ibc01rfNvu1 var
+wC8WPL4hWMvTY49sa76var
+I0DMZSao6hyysxd01j7F5varo489Uw4d4L2
+K6AAoGx7S9Zeiwu6S var var var W3tpjT52245fZ11
+

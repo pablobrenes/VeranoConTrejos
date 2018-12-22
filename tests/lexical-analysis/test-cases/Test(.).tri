@@ -1,0 +1,273 @@
+! Test of . with 3 unis
+...
+
+! Test of . with array
+array .
+array.
+array.array
+array . . . array
+
+! Test of . with begin
+begin .
+begin.
+begin.begin
+begin . . . begin
+
+! Test of . with const
+const .
+const.
+const.const
+const . . . const
+
+! Test of . with do
+do .
+do.
+do.do
+do . . . do
+
+! Test of . with else
+else .
+else.
+else.else
+else . . . else
+
+! Test of . with end
+end .
+end.
+end.end
+end . . . end
+
+! Test of . with func
+func .
+func.
+func.func
+func . . . func
+
+! Test of . with if
+if .
+if.
+if.if
+if . . . if
+
+! Test of . with in
+in .
+in.
+in.in
+in . . . in
+
+! Test of . with let
+let .
+let.
+let.let
+let . . . let
+
+! Test of . with of
+of .
+of.
+of.of
+of . . . of
+
+! Test of . with proc
+proc .
+proc.
+proc.proc
+proc . . . proc
+
+! Test of . with record
+record .
+record.
+record.record
+record . . . record
+
+! Test of . with then
+then .
+then.
+then.then
+then . . . then
+
+! Test of . with type
+type .
+type.
+type.type
+type . . . type
+
+! Test of . with var
+var .
+var.
+var.var
+var . . . var
+
+! Test of . with while
+while .
+while.
+while.while
+while . . . while
+
+! Test of . with .
+. .
+..
+...
+. . . . .
+
+! Test of . with colon
+: .
+:.
+:.:
+: . . . :
+
+! Test of . with ;
+; .
+;.
+;.;
+; . . . ;
+
+! Test of . with ,
+, .
+,.
+,.,
+, . . . ,
+
+! Test of . with becomes
+:= .
+:=.
+:=.:=
+:= . . . :=
+
+! Test of . with ~
+~ .
+~.
+~.~
+~ . . . ~
+
+! Test of . with (
+( .
+(.
+(.(
+( . . . (
+
+! Test of . with )
+) .
+).
+).)
+) . . . )
+
+! Test of . with [
+[ .
+[.
+[.[
+[ . . . [
+
+! Test of . with ]
+] .
+].
+].]
+] . . . ]
+
+! Test of . with {
+{ .
+{.
+{.{
+{ . . . {
+
+! Test of . with }
+} .
+}.
+}.}
+} . . . }
+
+! Test of . with +
++ .
++.
++.+
++ . . . +
+
+! Test of . with -
+- .
+-.
+-.-
+- . . . -
+
+! Test of . with asterisk
+* .
+*.
+*.*
+* . . . *
+
+! Test of . with backSlash
+/ .
+/.
+/./
+/ . . . /
+
+! Test of . with =
+= .
+=.
+=.=
+= . . . =
+
+! Test of . with lessThan
+< .
+<.
+<.<
+< . . . <
+
+! Test of . with moreThan
+> .
+>.
+>.>
+> . . . >
+
+! Test of . with slash
+\ .
+\.
+\.\
+\ . . . \
+
+! Test of . with &
+& .
+&.
+&.&
+& . . . &
+
+! Test of . with @
+@ .
+@.
+@.@
+@ . . . @
+
+! Test of . with %
+% .
+%.
+%.%
+% . . . %
+
+! Test of . with ^
+^ .
+^.
+^.^
+^ . . . ^
+
+! Test of . with questionMark
+? .
+?.
+?.?
+? . . . ?
+
+! Test of . with CharLiteral
+'A' .
+'0'.
+' '.'#'
+'!' . . . ' '
+
+! Test of . with IntLiteral
+35655154516713 .
+389694926313233612.
+56257201924034821528.54065464537
+7769819160630742 . . . 42640227909086330
+
+! Test of . with Indentifier
+uQL6d0TIVG0f9CZ .
+da5e1CbFfpeEwC7551F9.
+Cxc2QzFWamA.i61y8K6IOH9ij5s0aJ0
+ST4zxRVnAfH3 . . . XbCKWq4bcp7bS0
+

@@ -1,0 +1,273 @@
+! Test of do with 3 unis
+dododo
+
+! Test of do with array
+array do
+arraydo
+arraydoarray
+array do do do array
+
+! Test of do with begin
+begin do
+begindo
+begindobegin
+begin do do do begin
+
+! Test of do with const
+const do
+constdo
+constdoconst
+const do do do const
+
+! Test of do with do
+do do
+dodo
+dododo
+do do do do do
+
+! Test of do with else
+else do
+elsedo
+elsedoelse
+else do do do else
+
+! Test of do with end
+end do
+enddo
+enddoend
+end do do do end
+
+! Test of do with func
+func do
+funcdo
+funcdofunc
+func do do do func
+
+! Test of do with if
+if do
+ifdo
+ifdoif
+if do do do if
+
+! Test of do with in
+in do
+indo
+indoin
+in do do do in
+
+! Test of do with let
+let do
+letdo
+letdolet
+let do do do let
+
+! Test of do with of
+of do
+ofdo
+ofdoof
+of do do do of
+
+! Test of do with proc
+proc do
+procdo
+procdoproc
+proc do do do proc
+
+! Test of do with record
+record do
+recorddo
+recorddorecord
+record do do do record
+
+! Test of do with then
+then do
+thendo
+thendothen
+then do do do then
+
+! Test of do with type
+type do
+typedo
+typedotype
+type do do do type
+
+! Test of do with var
+var do
+vardo
+vardovar
+var do do do var
+
+! Test of do with while
+while do
+whiledo
+whiledowhile
+while do do do while
+
+! Test of do with .
+. do
+.do
+.do.
+. do do do .
+
+! Test of do with colon
+: do
+:do
+:do:
+: do do do :
+
+! Test of do with ;
+; do
+;do
+;do;
+; do do do ;
+
+! Test of do with ,
+, do
+,do
+,do,
+, do do do ,
+
+! Test of do with becomes
+:= do
+:=do
+:=do:=
+:= do do do :=
+
+! Test of do with ~
+~ do
+~do
+~do~
+~ do do do ~
+
+! Test of do with (
+( do
+(do
+(do(
+( do do do (
+
+! Test of do with )
+) do
+)do
+)do)
+) do do do )
+
+! Test of do with [
+[ do
+[do
+[do[
+[ do do do [
+
+! Test of do with ]
+] do
+]do
+]do]
+] do do do ]
+
+! Test of do with {
+{ do
+{do
+{do{
+{ do do do {
+
+! Test of do with }
+} do
+}do
+}do}
+} do do do }
+
+! Test of do with +
++ do
++do
++do+
++ do do do +
+
+! Test of do with -
+- do
+-do
+-do-
+- do do do -
+
+! Test of do with asterisk
+* do
+*do
+*do*
+* do do do *
+
+! Test of do with backSlash
+/ do
+/do
+/do/
+/ do do do /
+
+! Test of do with =
+= do
+=do
+=do=
+= do do do =
+
+! Test of do with lessThan
+< do
+<do
+<do<
+< do do do <
+
+! Test of do with moreThan
+> do
+>do
+>do>
+> do do do >
+
+! Test of do with slash
+\ do
+\do
+\do\
+\ do do do \
+
+! Test of do with &
+& do
+&do
+&do&
+& do do do &
+
+! Test of do with @
+@ do
+@do
+@do@
+@ do do do @
+
+! Test of do with %
+% do
+%do
+%do%
+% do do do %
+
+! Test of do with ^
+^ do
+^do
+^do^
+^ do do do ^
+
+! Test of do with questionMark
+? do
+?do
+?do?
+? do do do ?
+
+! Test of do with CharLiteral
+'~' do
+'I'do
+'5'do'c'
+' ' do do do '2'
+
+! Test of do with IntLiteral
+14140035420411 do
+27944087175do
+1366131177640862555do6049009112420601968
+6039476029500427 do do do 6374944243208226
+
+! Test of do with Indentifier
+NWpbqv52h102hVC0ofX5U do
+a76Z4iOesPH40mm7do
+f1Wh04x957WHqPeNjdoJaN7MD295bt0RP
+Sw8JOFr9vQw4 do do do Dk7gLiRO2h7YBg4Zp26
+

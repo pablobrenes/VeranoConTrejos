@@ -1,0 +1,273 @@
+! Test of type with 3 unis
+typetypetype
+
+! Test of type with array
+array type
+arraytype
+arraytypearray
+array type type type array
+
+! Test of type with begin
+begin type
+begintype
+begintypebegin
+begin type type type begin
+
+! Test of type with const
+const type
+consttype
+consttypeconst
+const type type type const
+
+! Test of type with do
+do type
+dotype
+dotypedo
+do type type type do
+
+! Test of type with else
+else type
+elsetype
+elsetypeelse
+else type type type else
+
+! Test of type with end
+end type
+endtype
+endtypeend
+end type type type end
+
+! Test of type with func
+func type
+functype
+functypefunc
+func type type type func
+
+! Test of type with if
+if type
+iftype
+iftypeif
+if type type type if
+
+! Test of type with in
+in type
+intype
+intypein
+in type type type in
+
+! Test of type with let
+let type
+lettype
+lettypelet
+let type type type let
+
+! Test of type with of
+of type
+oftype
+oftypeof
+of type type type of
+
+! Test of type with proc
+proc type
+proctype
+proctypeproc
+proc type type type proc
+
+! Test of type with record
+record type
+recordtype
+recordtyperecord
+record type type type record
+
+! Test of type with then
+then type
+thentype
+thentypethen
+then type type type then
+
+! Test of type with type
+type type
+typetype
+typetypetype
+type type type type type
+
+! Test of type with var
+var type
+vartype
+vartypevar
+var type type type var
+
+! Test of type with while
+while type
+whiletype
+whiletypewhile
+while type type type while
+
+! Test of type with .
+. type
+.type
+.type.
+. type type type .
+
+! Test of type with colon
+: type
+:type
+:type:
+: type type type :
+
+! Test of type with ;
+; type
+;type
+;type;
+; type type type ;
+
+! Test of type with ,
+, type
+,type
+,type,
+, type type type ,
+
+! Test of type with becomes
+:= type
+:=type
+:=type:=
+:= type type type :=
+
+! Test of type with ~
+~ type
+~type
+~type~
+~ type type type ~
+
+! Test of type with (
+( type
+(type
+(type(
+( type type type (
+
+! Test of type with )
+) type
+)type
+)type)
+) type type type )
+
+! Test of type with [
+[ type
+[type
+[type[
+[ type type type [
+
+! Test of type with ]
+] type
+]type
+]type]
+] type type type ]
+
+! Test of type with {
+{ type
+{type
+{type{
+{ type type type {
+
+! Test of type with }
+} type
+}type
+}type}
+} type type type }
+
+! Test of type with +
++ type
++type
++type+
++ type type type +
+
+! Test of type with -
+- type
+-type
+-type-
+- type type type -
+
+! Test of type with asterisk
+* type
+*type
+*type*
+* type type type *
+
+! Test of type with backSlash
+/ type
+/type
+/type/
+/ type type type /
+
+! Test of type with =
+= type
+=type
+=type=
+= type type type =
+
+! Test of type with lessThan
+< type
+<type
+<type<
+< type type type <
+
+! Test of type with moreThan
+> type
+>type
+>type>
+> type type type >
+
+! Test of type with slash
+\ type
+\type
+\type\
+\ type type type \
+
+! Test of type with &
+& type
+&type
+&type&
+& type type type &
+
+! Test of type with @
+@ type
+@type
+@type@
+@ type type type @
+
+! Test of type with %
+% type
+%type
+%type%
+% type type type %
+
+! Test of type with ^
+^ type
+^type
+^type^
+^ type type type ^
+
+! Test of type with questionMark
+? type
+?type
+?type?
+? type type type ?
+
+! Test of type with CharLiteral
+'O' type
+'}'type
+'c'type'!'
+'V' type type type ')'
+
+! Test of type with IntLiteral
+88294322666231 type
+69439317777285998type
+749761300820type76363135472806
+2005561569 type type type 742222508614104
+
+! Test of type with Indentifier
+N32aGy4H4h87rv1A9o type
+FVO7gCk5tw4type
+V1p1hL0apA83txtypemb4wff3RXPC7n9ri
+qSM241j5inH664 type type type ErSLoJyNjO7YmJFh4
+
