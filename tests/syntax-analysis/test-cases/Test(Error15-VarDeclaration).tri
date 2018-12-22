@@ -1,0 +1,11 @@
+!expresión en lugar de denotador de tipo en declaración de variable (sintaxis original)
+let
+
+  var a : 5 + 5
+
+in
+
+  putint (a)
+
+end
+

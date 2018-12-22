@@ -1,0 +1,6 @@
+! Prueba del CallExpression. Debe funcionar.
+let
+   func b(): Char ~
+     b()
+in
+  putchar(b())

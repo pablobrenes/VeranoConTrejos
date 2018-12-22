@@ -1,0 +1,9 @@
+let
+
+  var b : array 10 of true
+
+in
+begin
+
+
+end

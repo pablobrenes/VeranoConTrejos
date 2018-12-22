@@ -1,0 +1,10 @@
+let
+
+  var a := !falta expresión
+
+in
+
+  putint (a)
+
+end
+
