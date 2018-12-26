@@ -3,19 +3,74 @@
 (* Implementation file                                    *)
 (*                                                        *)
 (* (c) 2006 Luis Leopoldo Pérez.                          *)
-(* Last modification: March 12, 2006                      *)
+(* Last modification by:                                  *)
+(* Jose Antonio Alpizar Aguilar - 2016201868              *)
+(* Pablo Josué Brenes Jiménez - 2016250460                *)
+(* Luis José Castillo Valverde - 2016094804               *)
+(* 22/12/2018                                             *)
 (* ------------------------------------------------------ *)
 
 open Ast
 open Printf
 
-let transformOperator o = 
-    if ((String.compare o "<") == 0) then
-       "&lt;"
-    else if ((String.compare o "<=") == 0) then
-       "&lt;="
-    else o
-  
+(* This function given a char returns its equivalent in XML (this for reasons 
+of compatibility in the print). *)
+let transformOperator o = (
+  match o with 
+    '<' -> "&lt;"
+  | '!' -> "&#33;"        
+  | '\"' -> "&#34;"        
+  | '#' -> "&#35;"        
+  | '$' -> "&#36;"        
+  | '%' -> "&#37;"        
+  | '&' -> "&#38;"        
+  | '\'' -> "&#39;"        
+  | '(' -> "&#40;"        
+  | ')' -> "&#41;"        
+  | '*' -> "&#42;"        
+  | '+' -> "&#43;"        
+  | ',' -> "&#44;"        
+  | '-' -> "&#45;"        
+  | '.' -> "&#46;"        
+  | '/' -> "&#47;"        
+  | ':' -> "&#58;"        
+  | ';' -> "&#59;"         
+  | '=' -> "&#61;"        
+  | '>' -> "&#62;"        
+  | '?' -> "&#63;"        
+  | '@' -> "&#64;"        
+  | '[' -> "&#91;"        
+  | '\\' -> "&#92;"        
+  | ']' -> "&#93;"        
+  | '^' -> "&#94;"        
+  | '_' -> "&#95;"        
+  | '`' -> "&#96;"        
+  | '{' -> "&#123;"       
+  | '|' -> "&#124;"      
+  | '}' -> "&#125;"     
+  | '~' -> "&#126;"
+  | _   ->  (String.make 1 o) )
+
+
+(* This function transforms a normal string to a compatible one to any format. 
+This function receives the string to be changed, the character transformation
+function, the lower limit to be transformed, the upper limit to be
+transformed and the result (it is advised to use "") *)
+let rec transformString stringBase transformChar index limit result =
+  if (index = limit) then
+    result
+  else
+    let charToTransform = stringBase.[index] in
+    let transformedChar = transformChar charToTransform in
+    let newResult = result ^ transformedChar in
+    transformString stringBase transformChar (index + 1) limit newResult
+
+(* This function given a string returns its equivalent in XML *)
+let clean_String str = (
+	transformString str transformOperator 0 (String.length str) "")
+
+(* Given a program, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)  
 let rec writeProgram t chan = match t with
     NullProgram   -> output_string chan "<NullProgram/>\n"
 
@@ -23,7 +78,8 @@ let rec writeProgram t chan = match t with
                      writeCommand c chan;
                      output_string chan "</Program>\n"
   
-
+(* Given a command, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeCommand t chan = match t with
     EmptyCommand      (_)         -> output_string chan "<EmptyCommand/>\n"
 
@@ -58,6 +114,8 @@ and writeCommand t chan = match t with
                                      writeCommand c chan;
                                      output_string chan "</WhileCommand>\n"
 
+(* Given a expression, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeExpression t chan = match t with
     EmptyExpression     (_)          -> output_string chan "<EmptyExpression/>\n"
 
@@ -113,7 +171,8 @@ and writeExpression t chan = match t with
                                         writeTypeDenoter t chan;
                                         output_string chan "</CheckedExpression>\n"
                                         
-
+(* Given a aggregate, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeArrayAggregate t chan = match t with
     SingleArrayAggregate   (_,e)    -> output_string chan "<SingleArrayAggregate>\n";
                                        writeExpression e chan;
@@ -128,6 +187,8 @@ and writeArrayAggregate t chan = match t with
                                        writeArrayAggregate aa chan;
                                        output_string chan "</CheckedArrayAggregate>\n"
 
+(* Given a record, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeRecordAggregate t chan = match t with
     SingleRecordAggregate   (_,i,e)    -> output_string chan "<SingleRecordAggregate>\n";
                                           writeIdentifier i chan;
@@ -145,6 +206,8 @@ and writeRecordAggregate t chan = match t with
                                           writeFieldTypeDenoter t chan;
                                           output_string chan "</CheckedRecordAggregate>\n"
 
+(* Given a vname, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeVname t chan = match t with
     SimpleVname (_,i)            -> output_string chan "<SimpleVname>\n";
                                     writeIdentifier i chan;
@@ -165,7 +228,8 @@ and writeVname t chan = match t with
                                     writeTypeDenoter t chan;
                                     output_string chan "</CheckedVname>\n"
 
-
+(* Given a declaration, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeDeclaration t chan = match t with
     NullDeclaration                          -> output_string chan "</NullDeclaration>\n";
   | ConstDeclaration          (_,i,e)        -> output_string chan "<ConstDeclaration>\n";
@@ -218,7 +282,8 @@ and writeDeclaration t chan = match t with
                                                 writeDeclaration d2 chan;
                                                 output_string chan "</SequentialDeclaration>\n"
 
-
+(* Given a formal parameter, it will run through its tree recursively 
+generating the openings and closures of tags in the corresponding places.. *)
 and writeFormalParameter t chan = match t with
     ConstFormalParameter (_,i,t)     -> output_string chan "<ConstFormalParameter>\n";
                                         writeIdentifier i chan;
@@ -241,7 +306,8 @@ and writeFormalParameter t chan = match t with
                                         writeTypeDenoter t chan;
                                         output_string chan "</FuncFormalParameter>\n"
 
-
+(* Given a actual parameter, it will run through its tree recursively 
+generating the openings and closures of tags in the corresponding places.. *)
 and writeActualParameter t chan = match t with
     ConstActualParameter (_,e) -> output_string chan "<ConstActualParameter>\n";
                                   writeExpression e chan;
@@ -259,6 +325,8 @@ and writeActualParameter t chan = match t with
                                   writeIdentifier i chan;
                                   output_string chan "</FuncActualParameter>\n"
 
+(* Given a formal parameter sequence, it will run through its tree recursively 
+generating the openings and closures of tags in the corresponding places.. *)
 and writeFormalParameterSequence t chan = match t with
     EmptyFormalParameterSequence  (_)          -> output_string chan "<EmptyFormalParameterSequence/>\n"
 
@@ -271,6 +339,8 @@ and writeFormalParameterSequence t chan = match t with
                                                   writeFormalParameterSequence fps chan;
                                                   output_string chan "</MultipleFormalParameterSequence>\n"
 
+(* Given a actual parameter sequence, it will run through its tree recursively 
+generating the openings and closures of tags in the corresponding places.. *)
 and writeActualParameterSequence t chan = match t with
     EmptyActualParameterSequence (_)           -> output_string chan "<EmptyActualParameterSequence/>\n"
 
@@ -283,6 +353,8 @@ and writeActualParameterSequence t chan = match t with
                                                   writeActualParameterSequence aps chan;
                                                   output_string chan "</MultipleActualParameterSequence>\n"
 
+(* Given a type denoter, it will run through its tree recursively generating the
+openings and closures of tags in the corresponding places.. *)
 and writeTypeDenoter t chan = match t with
     NullTypeDenoter           -> output_string chan "<NullTypeDenoter/>\n"
   | ErrorTypeDenoter (_)      -> output_string chan "<ErrorTypeDenoter/>\n"
@@ -308,7 +380,8 @@ and writeTypeDenoter t chan = match t with
 
   | CharTypeDenoter (_)       -> output_string chan "<CharTypeDenoter/>\n"
 
-
+(* Given a field type denoter, it will run through its tree recursively 
+generating the openings and closures of tags in the corresponding places.. *)
 and writeFieldTypeDenoter t chan = match t with
     SingleFieldTypeDenoter (_,i,t)      -> output_string chan "<SingleFieldTypeDenoter>\n";
                                            writeIdentifier i chan;
@@ -321,12 +394,15 @@ and writeFieldTypeDenoter t chan = match t with
                                            writeFieldTypeDenoter ft chan;
                                            output_string chan "</MultipleFieldTypeDenoter>\n"
 
+(* Given a integer literal this prints the XML version *)
 and writeIntegerLiteral t chan = match t with
     IntegerLiteral (_,str) -> output_string chan ("<IntegerLiteral value=\"" ^ str ^ "\"/>\n")
 
+(* Given a character literal this prints the XML version *)
 and writeCharacterLiteral t chan = match t with
-    CharacterLiteral (_,str) -> output_string chan ("<CharacterLiteral value=\"" ^ str ^ "\"/>\n")
+    CharacterLiteral (_,str) -> output_string chan ("<CharacterLiteral value=\"" ^ (clean_String str) ^ "\"/>\n")
 
+(* Given a identifier this prints the XML version *)
 and writeIdentifier t chan = match t with 
     Identifier (_,str)        -> output_string chan ("<Identifier value=\"" ^ str ^ "\"/>\n")
 
@@ -334,12 +410,15 @@ and writeIdentifier t chan = match t with
                                  writeIdentifier i chan;
                                  output_string chan "</CheckedIdentifier>\n"
 
+(* Given a operator this prints the XML version *)
 and writeOperator t chan = match t with
-    Operator (_,str)      -> output_string chan ("<Operator value=\"" ^ (transformOperator str) ^ "\"/>\n")
+    Operator (_,str)      -> output_string chan ("<Operator value=\"" ^ (clean_String str) ^ "\"/>\n")
   | CheckedOperator (o,d) -> output_string chan "<CheckedOperator>\n";
                              writeOperator o chan;
                              output_string chan "</CheckedOperator>\n"
 
+(* This function receives the AST to be printed and the name of the file 
+in which it will be written). It is responsible for creating the file *)
 let writeXMLTree astree fname = 
     try
       let chan = open_out fname in
@@ -347,3 +426,6 @@ let writeXMLTree astree fname =
           writeProgram astree chan;
           close_out_noerr chan
     with Sys_error s -> printf "Couldn't write XML tree file. (%s)\n" s
+
+(* Note: The first argument of all printing functions is ignored because it
+stores irrelevant information for printing. *)
