@@ -1,7 +1,20 @@
+(* ------------------------------------------------------ *)
+(* Tokens Drawing Library in a plain text file for        *)
+(* Caml-Triangle                                          *)
+(* Implementation file                                    *)
+(*                                                        *)
+(* Last modification by:                                  *)
+(* Jose Antonio Alpizar Aguilar - 2016201868              *)
+(* Pablo Josué Brenes Jiménez - 2016250460                *)
+(* Luis José Castillo Valverde - 2016094804               *)
+(* 22/12/2018                                             *)
+(* ------------------------------------------------------ *)
+
 open Printf
 open String
 open Token
 
+(* This function given a token returns its equivalent in string. *)
 let tokenToStr r = (
   match r with
     INTLITERAL(a)   -> a
@@ -39,6 +52,10 @@ let tokenToStr r = (
   | RCURLY          -> "}"
   | EOF             -> "end of file")
 
+
+(* This function receives the scanner function, the buffer of the file 
+being scanned and the handler of the file in which it is being written. 
+It is responsible for filling the file with the tokens separated by pipes. *)
 let rec printTokensAux scanner lexBuf chan = 
   let currentToken = scanner lexBuf in
   let tokenString = tokenToStr currentToken in
@@ -48,6 +65,10 @@ let rec printTokensAux scanner lexBuf chan =
   if (currentToken <> EOF) then
     printTokensAux scanner lexBuf chan
 
+
+(* This function receives the function of scanner, the buffer of the file 
+that is being scanned and the name of the file in which it will be written. 
+Is responsible for creating the file. *)
 let printTokens scanner lexBuf fileName =
   try
     let chan = open_out fileName in
