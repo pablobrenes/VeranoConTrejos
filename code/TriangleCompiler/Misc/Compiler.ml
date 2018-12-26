@@ -14,14 +14,17 @@ open Encoder
 open ErrorReporter
 open Printf
 open Lexing
-open TokenPrinter
+open TokenPrinter_Pipe
+open TokenPrinter_XML
 
 let outputFile = ref "a.out"
 let xmlErrorFile = ref ""
 let xmlTreeFile = ref ""
 let xmlDTreeFile = ref ""
 let xmlTableFile = ref ""
-let tokensFile = ref ""
+let tokensFile_Pipe = ref ""
+let tokensFile_XML = ref ""
+let tokensFile_HTML = ref ""
 let doUsage = ref false
 let astree = ref NullProgram
 let dastree = ref NullProgram
@@ -43,14 +46,30 @@ with End_of_file ->
   (* Esto es nuevo *)
   )
 
-let printTokensFuntion inpt fileName =
-    printf "Generate tokens....\n";
+
+let printTokensFuntion_Pipe inpt fileName =
+    printf "Generate tokens with pipes....\n";
     
     let lexbuf = (Lexing.from_string (readfile inpt)) in
       try
-        TokenPrinter.printTokens Scanner.scanToken lexbuf fileName;
+        TokenPrinter_Pipe.printTokens Scanner.scanToken lexbuf fileName;
       with _ -> ()
 
+let printTokensFuntion_XML inpt fileName =
+    printf "Generate tokens in xml file....\n";
+    
+    let lexbuf = (Lexing.from_string (readfile inpt)) in
+      try
+        TokenPrinter_XML.printTokens Scanner.scanToken lexbuf fileName;
+      with _ -> ()
+
+let printTokensFuntion_HTML inpt fileName =
+    printf "Generate tokens in html file....\n";
+    
+    let lexbuf = (Lexing.from_string (readfile inpt)) in
+      try
+        TokenPrinter_HTML.printTokens Scanner.scanToken lexbuf fileName;
+      with _ -> ()      
 
 let compile inpt outpt =
     let parse buf = (
@@ -80,7 +99,9 @@ let specs = [
     ("-xt", Arg.String (function s -> xmlTreeFile:= s), "<file> Writes the abstract syntax tree in XML format.");
     ("-xd", Arg.String (function s -> xmlDTreeFile:= s), "<file> Writes the decorated abstract syntax tree in XML format.");
     ("-xi", Arg.String (function s -> xmlTableFile:= s), "<file> Writes the identification table details in XML format.");
-    ("-tp", Arg.String (function s -> tokensFile:= s), "<file> Writes the tokens.")]
+    ("-tpp", Arg.String (function s -> tokensFile_Pipe:= s), "<file> Writes the tokens in file separated with pipes.");
+    ("-tpx", Arg.String (function s -> tokensFile_XML:= s), "<file> Writes the tokens in XML file.");
+    ("-tph", Arg.String (function s -> tokensFile_HTML:= s), "<file> Writes the tokens in HTML file.")]
 
 let usage_msg = "\nusage: " ^ Sys.argv.(0) ^ " <source> [options]\n"
 
@@ -109,8 +130,14 @@ let main () =
            if ((String.compare !xmlTableFile "") != 0) then
               Encoder.writeXMLTable !xmlTableFile;
            
-           if ((String.compare !tokensFile "") != 0) then
-              printTokensFuntion inputFile !tokensFile
+           if ((String.compare !tokensFile_Pipe "") != 0) then
+              printTokensFuntion_Pipe inputFile !tokensFile_Pipe;
+
+           if ((String.compare !tokensFile_XML "") != 0) then
+              printTokensFuntion_XML inputFile !tokensFile_XML;
+
+           if ((String.compare !tokensFile_HTML "") != 0) then
+              printTokensFuntion_HTML inputFile !tokensFile_HTML
               
         with Sys_error s -> printf "%s" s
 
