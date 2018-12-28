@@ -11,6 +11,7 @@
       open Parsing
       open ErrorReporter
       open RuntimeEntity
+      open Token
       
       let parse_error s = ()
 %}
