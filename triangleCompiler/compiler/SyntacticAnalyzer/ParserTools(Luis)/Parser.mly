@@ -44,7 +44,7 @@ parseProgram: Command EOF   { Program({pos=rhs_start_pos(1);run=NullRuntimeEntit
 
 /* Commands */
 Command: single_Command                   { $1 }
-       | single_Command SEMICOLON Command { SequentialCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, $1, $3) }
+       | Command SEMICOLON single_Command { SequentialCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}, $1, $3) }
        ;
 
 single_Command:                                                       { EmptyCommand({pos=rhs_start_pos(1);run=NullRuntimeEntity}) }
