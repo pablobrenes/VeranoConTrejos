@@ -17,5 +17,6 @@ public class TokenPrinter {
       System.out.print('|');
       currentToken = lexicalAnalyser.scan();
     }
+    System.out.print("end of file|");
   }
 }
