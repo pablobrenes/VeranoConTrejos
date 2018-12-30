@@ -13,13 +13,7 @@ public class TokenPrinter {
     currentToken = lexicalAnalyser.scan();
 
     while (currentToken.kind != Token.EOT) {
-      if (currentToken.kind == Token.INTLITERAL ||
-              currentToken.kind == Token.CHARLITERAL ||
-              currentToken.kind == Token.IDENTIFIER ||
-              currentToken.kind == Token.OPERATOR)
-        System.out.println(currentToken.spelling);
-      else
-        System.out.println(currentToken.toString());
+      System.out.print(currentToken.spelling);
       System.out.print('|');
       currentToken = lexicalAnalyser.scan();
     }
