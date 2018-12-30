@@ -7,4 +7,4 @@ do
 	java -jar ./Triangle.jar "$file"
 done
 
-mv ./Casos/*.txt ResultadosJavaSinx/
+mv ./Casos/*.xml ResultadosJavaSinx/
