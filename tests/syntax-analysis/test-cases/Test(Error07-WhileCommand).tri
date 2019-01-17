@@ -1,3 +1,0 @@
-! Prueba del WhileCommand. Deberia fallar.
-while true do
-   'z'

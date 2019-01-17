@@ -1,7 +1,0 @@
-! Prueba de ConstDeclaration. Debe funcionar
-let
-   const constante ~ 'b'
-in
-begin
-  put(constante)
-end

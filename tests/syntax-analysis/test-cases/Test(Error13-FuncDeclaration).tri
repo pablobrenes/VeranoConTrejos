@@ -1,6 +1,0 @@
-! Prueba de FuncDeclaration. Debe fallar.
-let
-   func f(): func ~
-        'e'
-in
-  put(f())

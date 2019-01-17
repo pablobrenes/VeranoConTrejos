@@ -1,5 +1,0 @@
-! comandos multiples con semicolon en el ultimo. Deberia pasar.
-! el arbol final queda armado con putint(2) y EmptyCommanda
-putint(0);
-putint(1);
-putint(2);

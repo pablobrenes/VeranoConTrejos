@@ -1,6 +1,0 @@
-! Prueba del CallExpression. Debe funcionar.
-let
-   func a(): Integer ~
-     a()
-in
-  putint(a())

@@ -1,5 +1,0 @@
-! prueba del IfCommand. Deberia pasar.
-if ('a' = 'a') then
-   putint(10)
-else
-   putint(11)

@@ -1,5 +1,0 @@
-! Prueba del IfCommand. Deberia fallar.
-if ('a' = 'b') then
-   8
-else
-   12

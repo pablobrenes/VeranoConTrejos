@@ -1,8 +1,0 @@
-loop
-
-  while true ! falta do
-
-    putint (1) 
-
-end
-
